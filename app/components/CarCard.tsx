@@ -52,7 +52,7 @@ const CarCard = ({ car, basePath }: CarCardProps) => {
         : ''
   );
   const router = useRouter();
-  const { user, setShowLoginModal, setRedirectAfterLogin } = useAuth();
+  const { user } = useAuth();
 
   // Guard against undefined car prop
   if (!car) {
