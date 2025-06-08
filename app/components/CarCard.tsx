@@ -234,12 +234,17 @@ const CarCard = ({ car, basePath }: CarCardProps) => {
               {car.mileage}
             </p>
 
-            <p className="text-gray-400 text-sm font-normal font-['Inter'] leading-tight mb-1">
-              Kilometer Run
-            </p>
-            <p className="text-white text-base font-normal font-['Inter'] leading-normal">
-              {car.kmRun ? `${car.kmRun} km` : 'N/A'}
-            </p>
+            {/* Conditional rendering for Kilometer Run */}
+            {car.kmRun && car.kmRun !== 'N/A' && (
+              <>
+                <p className="text-gray-400 text-sm font-normal font-['Inter'] leading-tight mb-1">
+                  Kilometer Run
+                </p>
+                <p className="text-white text-base font-normal font-['Inter'] leading-normal">
+                  {car.kmRun} km
+                </p>
+              </>
+            )}
           </div>
 
           <div>
