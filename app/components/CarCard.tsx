@@ -9,7 +9,7 @@ import { useComparison } from '../context/ComparisonContext';
 import { useAuth } from '../context/AuthContext';
 
 interface Car {
-  id: string | number;
+  id: number;
   image: string;
   images?: string[];
   name: string;
