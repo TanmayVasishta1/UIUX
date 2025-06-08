@@ -1,0 +1,17 @@
+{
+  "name": "CarKraze",
+  "short_name": "CarKraze",
+  "description": "Your ultimate car buying and selling platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171717",
+  "theme_color": "#F97316",
+  "icons": [
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+} 
