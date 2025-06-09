@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 interface CarDetail {
   id: number;
   image: string;
+  images?: string[];
   name: string;
   type: string;
   fuelType: string;
@@ -34,6 +35,12 @@ const carDetails: { [key: string]: CarDetail } = {
   "skoda-kushaq": {
     id: 4,
     image: "/images/16_skoda_kushaq_wp.jpg",
+    images: [
+      "/images/kushaq/skoda-kushaq-front.jpg",
+      "/images/kushaq/skoda-kushaq-side.jpg",
+      "/images/kushaq/skoda-kushaq-rear.jpg",
+      "/images/kushaq/skoda-kushaq-interior.jpg"
+    ],
     name: "Skoda Kushaq",
     type: "SUV",
     fuelType: "Petrol",
@@ -74,6 +81,13 @@ const carDetails: { [key: string]: CarDetail } = {
   "tata-curvv": {
     id: 5,
     image: "/images/tata curv.jpeg",
+    images: [
+      "/images/tata-curvv/tata curv.jpeg",
+      "/images/curvv/curvv.webp",
+      "/images/curvv/curvvvv.jpg",
+      "https://placehold.co/600x400/3366FF/white?text=Curvv+Side",
+      "https://placehold.co/600x400/FFFF33/black?text=Curvv+Interior"
+    ],
     name: "Tata Curvv",
     type: "SUV Coupe",
     fuelType: "Petrol/Diesel",
@@ -113,6 +127,12 @@ const carDetails: { [key: string]: CarDetail } = {
   "toyota-yaris": {
     id: 6,
     image: "/images/toyota yaris.png",
+    images: [
+      "/images/toyota-yaris/toyota yaris.png",
+      "https://placehold.co/600x400/FF0000/white?text=Yaris+Front",
+      "https://placehold.co/600x400/00FF00/white?text=Yaris+Side",
+      "https://placehold.co/600x400/0000FF/white?text=Yaris+Interior"
+    ],
     name: "Toyota Yaris",
     type: "Sedan",
     fuelType: "Petrol",
@@ -152,6 +172,12 @@ const carDetails: { [key: string]: CarDetail } = {
   "hyundai-verna": {
     id: 7,
     image: "/images/verna.jpg",
+    images: [
+      "/images/verna/verna.jpg",
+      "/images/verna/verna interior.jpeg",
+      "https://placehold.co/600x400/AA00AA/white?text=Verna+Front",
+      "https://placehold.co/600x400/00AAAA/white?text=Verna+Rear"
+    ],
     name: "Hyundai Verna",
     type: "Sedan",
     fuelType: "Petrol/Diesel",
@@ -191,6 +217,14 @@ const carDetails: { [key: string]: CarDetail } = {
   "skoda-slavia": {
     id: 8,
     image: "/images/slavia.jpg",
+    images: [
+      "/images/slavia/slavia.jpg",
+      "/images/slavia/back.jpeg",
+      "/images/slavia/interiorslavia.jpeg",
+      "/images/slavia/slaviaa.jpeg",
+      "https://placehold.co/600x400/123456/white?text=Slavia+Front",
+      "https://placehold.co/600x400/654321/white?text=Slavia+Side"
+    ],
     name: "Skoda Slavia",
     type: "Sedan",
     fuelType: "Petrol",
@@ -229,6 +263,13 @@ const carDetails: { [key: string]: CarDetail } = {
   "hyundai-creta": {
     id: 1,
     image: "/images/hyundai-creta-4k-sunset-2024-cars-su2.jpg",
+    images: [
+      "/images/creta/Hyundai Creta Front View.jpg",
+      "/images/creta/Hyundai Creta Front Right View.jpg",
+      "/images/creta/hyundai-creta-4k-sunset-2024-cars-su2.jpg",
+      "https://placehold.co/600x400/FF5733/white?text=Creta+Interior",
+      "https://placehold.co/600x400/33FF57/white?text=Creta+Rear"
+    ],
     name: "Hyundai Creta",
     type: "SUV",
     fuelType: "Petrol",
@@ -269,6 +310,14 @@ const carDetails: { [key: string]: CarDetail } = {
   "tata-nexon": {
     id: 2,
     image: "/images/cars/nexon.jpg",
+    images: [
+      "/images/nexon/Tata Nexon Front Left View.jpg",
+      "/images/nexon/Tata Nexon Front View.jpg",
+      "/images/nexon/download.jpeg",
+      "/images/nexon/interiornexon.jpeg",
+      "https://placehold.co/600x400/5500AA/white?text=Nexon+Side",
+      "https://placehold.co/600x400/AA0055/white?text=Nexon+Interior"
+    ],
     name: "Tata Nexon",
     type: "Compact SUV",
     fuelType: "Diesel",
@@ -279,7 +328,7 @@ const carDetails: { [key: string]: CarDetail } = {
     power: "108 bhp",
     colors: [],
     features: [],
-     variants: {
+    variants: {
       "XM": {
         "Delhi": "₹9,60,000",
         "Mumbai": "₹10,00,000",
@@ -300,17 +349,25 @@ const carDetails: { [key: string]: CarDetail } = {
   "maruti-baleno": {
     id: 3,
     image: "/images/cars/baleno.jpg",
-    name: "Maruti Baleno",
+    images: [
+      "/images/baleno/baleno.jpg",
+      "/images/baleno/back.jpeg",
+      "/images/baleno/download.jpeg",
+      "/images/baleno/interior.jpeg",
+      "https://placehold.co/600x400/0000FF/white?text=Baleno+Front",
+      "https://placehold.co/600x400/00FF00/white?text=Baleno+Rear"
+    ],
+    name: "Maruti Suzuki Baleno",
     type: "Premium Hatchback",
-    fuelType: "Petrol",
-    transmission: "Manual",
-    price: "₹8,90,000",
-    mileage: "22.3 kmpl",
-    engine: "1.2L",
+    fuelType: "Petrol/CNG",
+    transmission: "Manual/Automatic",
+    price: "₹6,61,000",
+    mileage: "22.9 kmpl",
+    engine: "1.2L DualJet",
     power: "88 bhp",
     colors: [],
     features: [],
-     variants: {
+    variants: {
       "Sigma": {
         "Delhi": "₹8,90,000",
         "Mumbai": "₹9,30,000",
@@ -331,250 +388,244 @@ const carDetails: { [key: string]: CarDetail } = {
 };
 
 export default function CarDetailsPage({ params }: { params: { slug: string } }) {
-  const [selectedVariant, setSelectedVariant] = useState<string>(() => {
-    const car = carDetails[params.slug];
-    return car.variants ? Object.keys(car.variants)[0] : '';
-  });
-  const [selectedRegion, setSelectedRegion] = useState<string>(() => {
-    const car = carDetails[params.slug];
-    if (car.variants && Object.keys(car.variants).length > 0) {
-      const variant = Object.keys(car.variants)[0];
-      return Object.keys(car.variants[variant])[0];
-    } else if (car.statePrices && Object.keys(car.statePrices).length > 0) {
-      return Object.keys(car.statePrices)[0];
-    }
-    return '';
-  });
+  const { slug } = params;
+  const car = carDetails[slug];
 
-  // Update region when variant changes
-  useEffect(() => {
-    const car = carDetails[params.slug];
-    if (car.variants && selectedVariant) {
-      setSelectedRegion(Object.keys(car.variants[selectedVariant])[0]);
-    }
-  }, [selectedVariant, params.slug]);
-
-  const car: CarDetail | undefined = carDetails[params.slug];
+  const [selectedVariant, setSelectedVariant] = useState<string>(
+    car?.variants ? Object.keys(car.variants)[0] : ''
+  );
+  const [selectedRegion, setSelectedRegion] = useState<string>(
+    car?.variants
+      ? Object.keys(car.variants[selectedVariant || Object.keys(car.variants)[0]])[0]
+      : car?.statePrices
+        ? Object.keys(car.statePrices)[0]
+        : ''
+  );
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    if (car && car.statePrices) {
-      setSelectedRegion(Object.keys(car.statePrices)[0]);
-    }
-  }, [car]);
+    setCurrentImageIndex(0);
+  }, [slug]);
 
   if (!car) {
     return (
-      <main className="min-h-screen bg-neutral-100">
-        <div className="max-w-7xl mx-auto px-4 py-8">
-          <h1 className="text-2xl font-bold">Car not found</h1>
-          <Link href="/cars" className="text-blue-600 hover:underline">
-            Back to cars
-          </Link>
-        </div>
+      <main className="min-h-screen bg-neutral-900 text-white flex items-center justify-center">
+        <h1 className="text-3xl font-bold">Car Not Found</h1>
       </main>
     );
   }
 
-  return (
-    <main className="min-h-screen bg-neutral-100">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <Link href="/cars" className="text-blue-600 hover:underline mb-6 inline-block">
-          ← Back to cars
-        </Link>
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? (car.images?.length || 1) - 1 : prevIndex - 1
+    );
+  };
 
-        <div className="bg-white rounded-xl shadow-md overflow-hidden">
-          <div className="relative w-full h-96">
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      (prevIndex + 1) % (car.images?.length || 1)
+    );
+  };
+
+  const handleDotClick = (index: number) => {
+    setCurrentImageIndex(index);
+  };
+
+  const currentImageSrc = Array.isArray(car.images) && car.images.length > 0
+    ? car.images[currentImageIndex]
+    : (car.image || '/images/no-car.png');
+
+  return (
+    <main className="min-h-screen bg-neutral-900 text-white relative">
+      <div
+        className="fixed inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("/images/cars-bg.jpg")',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8 pt-24">
+        <div className="mb-8 flex items-center justify-between">
+          <Link href="/cars" className="text-orange-500 hover:underline">
+            &larr; Back to Cars
+          </Link>
+          <h1 className="text-3xl font-bold">{car.name}</h1>
+          <div />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-8">
+          <div className="relative w-full h-96 rounded-xl overflow-hidden shadow-lg border border-neutral-700">
             <Image
-              src={car.image}
+              src={currentImageSrc}
               alt={car.name}
               fill
-              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover transition-opacity duration-300"
+              priority
             />
+            {car.images && car.images.length > 1 && (
+              <>
+                <button
+                  onClick={handlePrevImage}
+                  className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-colors z-10"
+                  aria-label="Previous image"
+                >
+                  &#8592;
+                </button>
+                <button
+                  onClick={handleNextImage}
+                  className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-colors z-10"
+                  aria-label="Next image"
+                >
+                  &#8594;
+                </button>
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                  {car.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => handleDotClick(index)}
+                      className={`w-3 h-3 rounded-full ${index === currentImageIndex ? 'bg-white' : 'bg-gray-400'} transition-colors`}
+                      aria-label={`View image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
+          <div className="bg-neutral-800 rounded-xl p-8 shadow-lg border border-neutral-700">
+            <h2 className="text-3xl font-bold mb-4">{car.name}</h2>
+            <p className="text-gray-400 text-lg mb-6">
+              {car.type} • {car.fuelType} • {car.transmission}
+            </p>
+            <p className="text-orange-500 text-4xl font-bold mb-6">
+              {car.price}
+            </p>
 
-          <div className="p-8">
-            <div className="flex justify-between items-start mb-8">
-              <div>
-                <h1 className="text-3xl font-bold font-['Inter'] leading-tight mb-2">
-                  {car.name}
-                </h1>
-                <p className="text-black/80 text-lg font-normal font-['Inter']">
-                  {car.type} • {car.fuelType}
-                </p>
-              </div>
-              <p className="text-2xl font-semibold font-['Inter']">
-                {car.price}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-              <div>
-                <p className="text-black/80 text-sm font-normal font-['Inter'] mb-1">
-                  Engine
-                </p>
-                <p className="text-black text-base font-medium font-['Inter']">
-                  {car.engine}
-                </p>
-              </div>
-              <div>
-                <p className="text-black/80 text-sm font-normal font-['Inter'] mb-1">
-                  Power
-                </p>
-                <p className="text-black text-base font-medium font-['Inter']">
-                  {car.power}
-                </p>
-              </div>
-              <div>
-                <p className="text-black/80 text-sm font-normal font-['Inter'] mb-1">
-                  Mileage
-                </p>
-                <p className="text-black text-base font-medium font-['Inter']">
-                  {car.mileage}
-                </p>
-              </div>
-              {car.transmission && (
-              <div>
-                <p className="text-black/80 text-sm font-normal font-['Inter'] mb-1">
-                  Transmission
-                </p>
-                <p className="text-black text-base font-medium font-['Inter']">
-                  {car.transmission}
-                </p>
-              </div>
-              )}
-               {car.seating && (
-                <div>
-                  <p className="text-black/80 text-sm font-normal font-['Inter'] mb-1">
-                    Seating
-                  </p>
-                  <p className="text-black text-base font-medium font-['Inter']">
-                    {car.seating}
-                  </p>
-                </div>
-              )}
-              {car.bootSpace && (
-                <div>
-                  <p className="text-black/80 text-sm font-normal font-['Inter'] mb-1">
-                    Boot Space
-                  </p>
-                  <p className="text-black text-base font-medium font-['Inter']">
-                    {car.bootSpace}
-                  </p>
-                </div>
-              )}
-               {car.groundClearance && (
-                <div>
-                  <p className="text-black/80 text-sm font-normal font-['Inter'] mb-1">
-                    Ground Clearance
-                  </p>
-                  <p className="text-black text-base font-medium font-['Inter']">
-                    {car.groundClearance}
-                  </p>
-                </div>
-              )}
-
-            </div>
-
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold font-['Inter'] mb-4">
-                Available Colors
-              </h2>
-              <div className="flex gap-4">
-                {car.colors.map((color) => (
-                  <div
-                    key={color}
-                    className="w-8 h-8 rounded-full border border-gray-200"
-                    style={{ backgroundColor: color.toLowerCase() }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-8">
-              <h2 className="text-xl font-semibold font-['Inter'] mb-4">
-                Key Features
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {car.features.map((feature) => (
-                  <div
-                    key={feature}
-                    className="flex items-center gap-2 text-black/80"
-                  >
-                    <span className="w-2 h-2 bg-blue-600 rounded-full" />
-                    {feature}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Variant & Region-wise Price Filter */}
             {car.variants ? (
-              <div className="mb-8">
-                <h2 className="text-xl font-semibold font-['Inter'] mb-4">
-                  Variant & Region-wise Price
-                </h2>
-                <div className="flex items-center gap-4">
-                  <label htmlFor="variant-select" className="text-black/80 text-base font-normal font-['Inter']">
-                    Select Variant:
+              <div className="mb-6 flex gap-4 items-end">
+                <div className="flex-1">
+                  <label htmlFor="variant-select" className="block text-sm font-medium text-gray-400 mb-2">
+                    Variant:
                   </label>
                   <select
                     id="variant-select"
-                    value={selectedVariant}
+                    value={selectedVariant || Object.keys(car.variants)[0]}
                     onChange={(e) => setSelectedVariant(e.target.value)}
-                    className="rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full rounded-md border border-gray-600 bg-neutral-700 text-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
                   >
                     {Object.keys(car.variants).map((variant) => (
                       <option key={variant} value={variant}>{variant}</option>
                     ))}
                   </select>
-                  <label htmlFor="region-select" className="text-black/80 text-base font-normal font-['Inter']">
-                    Select Region:
+                </div>
+                <div className="flex-1">
+                  <label htmlFor="region-select" className="block text-sm font-medium text-gray-400 mb-2">
+                    Region:
                   </label>
                   <select
                     id="region-select"
-                    value={selectedRegion}
+                    value={selectedRegion || Object.keys(car.variants[selectedVariant || Object.keys(car.variants)[0]])[0]}
                     onChange={(e) => setSelectedRegion(e.target.value)}
-                    className="rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-600"
+                    className="w-full rounded-md border border-gray-600 bg-neutral-700 text-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
                   >
-                    {Object.keys(car.variants[selectedVariant]).map((region) => (
+                    {Object.keys(car.variants[selectedVariant || Object.keys(car.variants)[0]]).map((region) => (
                       <option key={region} value={region}>{region}</option>
                     ))}
                   </select>
                 </div>
-                <div className="mt-4 text-black text-lg font-semibold font-['Inter']">
-                  Price for {selectedVariant} in {selectedRegion}: {car.variants[selectedVariant][selectedRegion]}
+                <div className="flex-1">
+                  <p className="text-white text-base font-medium mb-0">
+                    Price: {car.variants[selectedVariant || Object.keys(car.variants)[0]][selectedRegion || Object.keys(car.variants[selectedVariant || Object.keys(car.variants)[0]])[0]]}
+                  </p>
                 </div>
               </div>
             ) : car.statePrices && Object.keys(car.statePrices).length > 0 && (
-              <div className="mb-8">
-              <h2 className="text-xl font-semibold font-['Inter'] mb-4">
-                  Region-wise Price
-              </h2>
-                <div className="flex items-center gap-4">
-                  <label htmlFor="region-select" className="text-black/80 text-base font-normal font-['Inter']">
-                    Select Region:
-                  </label>
-                  <select
-                    id="region-select"
-                    value={selectedRegion}
-                    onChange={(e) => setSelectedRegion(e.target.value)}
-                    className="rounded-md border border-gray-300 bg-white px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  >
-                {Object.entries(car.statePrices).map(([state, price]) => (
-                      <option key={state} value={state}>
+              <div className="mb-6">
+                <label htmlFor="region-select" className="block text-sm font-medium text-gray-400 mb-2">
+                  Price in Region:
+                </label>
+                <select
+                  id="region-select"
+                  value={selectedRegion}
+                  onChange={(e) => setSelectedRegion(e.target.value)}
+                  className="w-full rounded-md border border-gray-600 bg-neutral-700 text-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                >
+                  {Object.entries(car.statePrices).map(([state, price]) => (
+                    <option key={state} value={state}>
                       {state}
-                      </option>
-                    ))}
-                  </select>
-                </div>
+                    </option>
+                  ))}
+                </select>
                 {selectedRegion && car.statePrices[selectedRegion] && (
-                  <div className="mt-4 text-black text-lg font-semibold font-['Inter']">
-                    Price in {selectedRegion}: {car.statePrices[selectedRegion]}
-                  </div>
+                  <p className="mt-2 text-white text-base font-medium">
+                    Price: {car.statePrices[selectedRegion]}
+                  </p>
                 )}
               </div>
             )}
 
+            <div className="grid grid-cols-2 gap-y-4 gap-x-8 mb-6">
+              <div>
+                <p className="text-gray-400 text-sm mb-1">Engine</p>
+                <p className="text-white text-base">{car.engine}</p>
+              </div>
+              <div>
+                <p className="text-gray-400 text-sm mb-1">Power</p>
+                <p className="text-white text-base">{car.power}</p>
+              </div>
+              <div>
+                <p className="text-gray-400 text-sm mb-1">Mileage</p>
+                <p className="text-white text-base">{car.mileage}</p>
+              </div>
+              <div>
+                <p className="text-gray-400 text-sm mb-1">Ground Clearance</p>
+                <p className="text-white text-base">{car.groundClearance}</p>
+              </div>
+              <div>
+                <p className="text-gray-400 text-sm mb-1">Boot Space</p>
+                <p className="text-white text-base">{car.bootSpace}</p>
+              </div>
+              <div>
+                <p className="text-gray-400 text-sm mb-1">Seating</p>
+                <p className="text-white text-base">{car.seating}</p>
+              </div>
+            </div>
+
+            <h3 className="text-xl font-semibold mb-3">Key Features</h3>
+            <ul className="list-disc list-inside text-gray-300 mb-6 grid grid-cols-2 gap-y-2">
+              {car.features.map((feature, index) => (
+                <li key={index}>{feature}</li>
+              ))}
+            </ul>
+
+            <h3 className="text-xl font-semibold mb-3">Available Colors</h3>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {car.colors.map((color, index) => (
+                <span
+                  key={index}
+                  className="px-3 py-1 bg-neutral-700 text-sm rounded-full"
+                >
+                  {color}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/sell-car"
+                className="flex-1 bg-orange-500 text-white py-3 px-6 rounded-lg text-center font-medium hover:bg-orange-600 transition-colors"
+              >
+                Sell Your Car
+              </Link>
+              <Link
+                href="/emi-calculator"
+                className="flex-1 border border-orange-500 text-orange-500 py-3 px-6 rounded-lg text-center font-medium hover:bg-orange-500 hover:text-white transition-colors"
+              >
+                Calculate EMI
+              </Link>
+            </div>
           </div>
         </div>
       </div>
