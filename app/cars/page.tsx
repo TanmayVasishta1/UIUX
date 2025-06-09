@@ -109,6 +109,12 @@ const cars = [
   {
     id: 6,
     image: "/images/toyota yaris.png",
+    images: [
+      "/images/toyota yaris.png",
+      "https://placehold.co/600x400/FF0000/white?text=Yaris+Front",
+      "https://placehold.co/600x400/00FF00/white?text=Yaris+Side",
+      "https://placehold.co/600x400/0000FF/white?text=Yaris+Interior"
+    ],
     name: "Toyota Yaris",
     type: "Sedan",
     fuelType: "Petrol",
@@ -152,6 +158,12 @@ const cars = [
   {
     id: 7,
     image: "/images/verna.jpg",
+    images: [
+      "/images/verna.jpg",
+      "https://placehold.co/600x400/AA00AA/white?text=Verna+Front",
+      "https://placehold.co/600x400/00AAAA/white?text=Verna+Rear",
+      "https://placehold.co/600x400/AAAA00/white?text=Verna+Interior"
+    ],
     name: "Hyundai Verna",
     type: "Sedan",
     fuelType: "Petrol/Diesel",
@@ -195,6 +207,12 @@ const cars = [
   {
     id: 8,
     image: "/images/slavia.jpg",
+    images: [
+      "/images/slavia.jpg",
+      "https://placehold.co/600x400/123456/white?text=Slavia+Front",
+      "https://placehold.co/600x400/654321/white?text=Slavia+Side",
+      "https://placehold.co/600x400/ABCDEF/white?text=Slavia+Interior"
+    ],
     name: "Skoda Slavia",
     type: "Sedan",
     fuelType: "Petrol",
@@ -237,6 +255,12 @@ const cars = [
   {
     id: 1,
     image: "/images/cars/creta.jpg",
+    images: [
+      "/images/cars/creta.jpg",
+      "/images/creta/Hyundai Creta Front Right View.jpg",
+      "/images/creta/Hyundai Creta Front View.jpg",
+      "/images/creta/hyundai-creta-4k-sunset-2024-cars-su2.jpg"
+    ],
     name: "Hyundai Creta",
     type: "SUV",
     fuelType: "Petrol",
@@ -279,27 +303,33 @@ const cars = [
   {
     id: 2,
     image: "/images/cars/nexon.jpg",
+    images: [
+      "/images/cars/nexon.jpg",
+      "/images/nexon/Tata Nexon Front Left View.jpg",
+      "https://placehold.co/600x400/5500AA/white?text=Nexon+Side",
+      "https://placehold.co/600x400/AA0055/white?text=Nexon+Interior"
+    ],
     name: "Tata Nexon",
-    type: "Compact SUV",
-    fuelType: "Diesel",
-    transmission: "Automatic",
-    price: "₹9,60,000",
-    mileage: "21.5 kmpl",
-    engine: "1.5L",
-    power: "108 bhp",
+    type: "SUV",
+    fuelType: "Petrol/Diesel",
+    transmission: "Manual/Automatic",
+    price: "₹8,15,000",
+    mileage: "17.4 kmpl",
+    engine: "1.2L Turbo Petrol",
+    power: "118 bhp",
     groundClearance: "209mm",
-    bootSpace: "382L",
+    bootSpace: "350L",
     keyFeatures: [
-      "Electric Sunroof",
-      "Air Purifier",
-      "Connected Car Tech",
-      "Multi Drive Modes"
+      "Sunroof",
+      "Touchscreen Infotainment",
+      "8-speaker Audio",
+      "Connected Car Tech"
     ],
     safetyFeatures: [
-      "5 Star NCAP",
-      "6 Airbags",
-      "ESP",
-      "Traction Control"
+      "ABS with EBD",
+      "Dual Airbags",
+      "Electronic Stability Program",
+      "Reverse Parking Sensors"
     ],
     variants: {
       "XM": {
@@ -321,27 +351,33 @@ const cars = [
   {
     id: 3,
     image: "/images/cars/baleno.jpg",
-    name: "Maruti Baleno",
-    type: "Premium Hatchback",
-    fuelType: "Petrol",
-    transmission: "Manual",
-    price: "₹8,90,000",
-    mileage: "22.3 kmpl",
-    engine: "1.2L",
+    images: [
+      "/images/cars/baleno.jpg",
+      "https://placehold.co/600x400/0000FF/white?text=Baleno+Front",
+      "https://placehold.co/600x400/00FF00/white?text=Baleno+Rear",
+      "https://placehold.co/600x400/FF0000/white?text=Baleno+Interior"
+    ],
+    name: "Maruti Suzuki Baleno",
+    type: "Hatchback",
+    fuelType: "Petrol/CNG",
+    transmission: "Manual/Automatic",
+    price: "₹6,61,000",
+    mileage: "22.9 kmpl",
+    engine: "1.2L DualJet",
     power: "88 bhp",
     groundClearance: "170mm",
     bootSpace: "318L",
     keyFeatures: [
-      "Smart Hybrid",
       "Head-up Display",
-      "Smart Play Studio",
-      "Auto AC"
+      "360 View Camera",
+      "SmartPlay Pro+ Infotainment",
+      "6 Airbags"
     ],
     safetyFeatures: [
-      "Dual Airbags",
       "ABS with EBD",
-      "ISOFIX",
-      "Impact Sensing"
+      "Electronic Stability Program",
+      "Hill Hold Assist",
+      "ISOFIX Child Seat Mounts"
     ],
     variants: {
       "Sigma": {
