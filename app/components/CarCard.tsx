@@ -41,6 +41,7 @@ interface CarCardProps {
 const CarCard = ({ car, basePath }: CarCardProps) => {
   const { addToComparison, removeFromComparison, isInComparison } = useComparison();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // New state for image slider
   // For variants
   const [selectedVariant, setSelectedVariant] = useState<string>(car.variants ? Object.keys(car.variants)[0] : '');
   // For regions
@@ -107,20 +108,79 @@ const CarCard = ({ car, basePath }: CarCardProps) => {
   // Determine the base path for the details link
   const detailsBasePath = basePath || '/cars';
 
+  // Handle image navigation
+  const handlePrevImage = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? (car.images?.length || 1) - 1 : prevIndex - 1
+    );
+  };
+
+  const handleNextImage = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentImageIndex((prevIndex) =>
+      (prevIndex + 1) % (car.images?.length || 1)
+    );
+  };
+
+  const handleDotClick = (e: React.MouseEvent, index: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setCurrentImageIndex(index);
+  };
+
+  // Determine the image source based on current index or fallback
+  const currentImageSrc = Array.isArray(car.images) && car.images.length > 0
+    ? car.images[currentImageIndex]
+    : (car.image || '/images/no-car.png');
+
   return (
     <div className="bg-neutral-800 rounded-xl shadow-lg overflow-hidden group border border-neutral-700">
       <div className="relative w-full h-52">
         <Image
-          src={Array.isArray(car.images) && car.images.length > 0 ? car.images[0] : (car.image || '/images/no-car.png')}
+          src={currentImageSrc}
           alt={car.name || car.title || 'Car image'}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-300 group-hover:scale-105"
           priority
         />
+        {car.images && car.images.length > 1 && (
+          <>
+            {/* Prev Button */}
+            <button
+              onClick={handlePrevImage}
+              className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-10"
+              aria-label="Previous image"
+            >
+              &#8592;
+            </button>
+            {/* Next Button */}
+            <button
+              onClick={handleNextImage}
+              className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-colors z-10"
+              aria-label="Next image"
+            >
+              &#8594;
+            </button>
+            {/* Dots Indicator */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex space-x-1 z-10">
+              {car.images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={(e) => handleDotClick(e, index)}
+                  className={`w-2 h-2 rounded-full ${index === currentImageIndex ? 'bg-white' : 'bg-gray-400'} transition-colors`}
+                  aria-label={`View image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
+        )}
         <button
           onClick={handleFavoriteClick}
-          className="absolute top-4 right-4 p-2 bg-black/50 rounded-full hover:bg-black/70 transition-colors"
+          className="absolute top-4 right-4 p-2 bg-black/50 rounded-full hover:bg-black/70 transition-colors z-10"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

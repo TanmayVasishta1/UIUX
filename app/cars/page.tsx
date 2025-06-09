@@ -9,6 +9,12 @@ const cars = [
   {
     id: 4,
     image: "/images/16_skoda_kushaq_wp.jpg",
+    images: [
+      "/images/16_skoda_kushaq_wp.jpg",
+      "/images/19_skoda_kushaq_wp.jpg",
+      "https://placehold.co/600x400/FF5733/white?text=Kushaq+Interior",
+      "https://placehold.co/600x400/33FF57/white?text=Kushaq+Rear"
+    ],
     name: "Skoda Kushaq",
     type: "SUV",
     fuelType: "Petrol",
@@ -53,6 +59,13 @@ const cars = [
   {
     id: 5,
     image: "/images/tata curv.jpeg",
+    images: [
+      "/images/tata curv.jpeg",
+      "/images/curvv/curvv.webp",
+      "/images/curvv/curvvvv.jpg",
+      "https://placehold.co/600x400/3366FF/white?text=Curvv+Side",
+      "https://placehold.co/600x400/FFFF33/black?text=Curvv+Interior"
+    ],
     name: "Tata Curvv",
     type: "SUV Coupe",
     fuelType: "Petrol/Diesel",
